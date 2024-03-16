@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\v1\Seller\student;
+namespace App\Http\Resources\v1\Teacher\lesson;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class StudentCollection extends ResourceCollection
+class LessonCollection extends ResourceCollection
 {
     public function toArray(Request $request): array
     {

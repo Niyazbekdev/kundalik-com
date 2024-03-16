@@ -8,23 +8,18 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('role_id')->constrained();
+            $table->foreignId('course_id')->constrained();
             $table->string('name');
-            $table->string('phone', 13)->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->timestamp('date');
             $table->timestamps();
             $table->softDeletes();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('lessons');
     }
 };

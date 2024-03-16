@@ -13,7 +13,7 @@ class StudentSeeder extends Seeder
         foreach ($students as $student){
             $student->courses()->attach(1);
         }
-//
+
         $students = Student::factory()->count(10)->create();
         foreach ($students as $student){
             $student->courses()->attach(2);

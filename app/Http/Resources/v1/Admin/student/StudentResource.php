@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\v1\Seller\student;
+namespace App\Http\Resources\v1\Admin\student;
 
 use App\Http\Resources\v1\Admin\Course\CourseResource;
 use Illuminate\Http\Request;
