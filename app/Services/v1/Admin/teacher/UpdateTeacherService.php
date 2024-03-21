@@ -18,7 +18,6 @@ class UpdateTeacherService
 
         $teacher->update([
             'name' => $data['name'],
-            'email' => $data['email'],
             'phone' => $data['phone']
         ]);
 

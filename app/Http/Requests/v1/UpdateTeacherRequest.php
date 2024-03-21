@@ -16,7 +16,6 @@ class UpdateTeacherRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => ['required',Rule::unique('users', 'email')->ignore($this->teacher)],
             'phone' => ['required',Rule::unique('users', 'phone')->ignore($this->teacher)],
         ];
     }
