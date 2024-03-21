@@ -19,6 +19,7 @@ class UpdateCourseRequest extends FormRequest
             'duration' => 'required',
             'price' => 'required',
             'count_student' => 'required',
+            'time' => 'required',
         ];
     }
 }

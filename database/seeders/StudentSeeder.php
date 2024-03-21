@@ -9,14 +9,6 @@ class StudentSeeder extends Seeder
 {
     public function run(): void
     {
-        $students = Student::factory()->count(12)->create();
-        foreach ($students as $student){
-            $student->courses()->attach(1);
-        }
-
-        $students = Student::factory()->count(10)->create();
-        foreach ($students as $student){
-            $student->courses()->attach(2);
-        }
+        $students = Student::factory()->count(22)->create();
     }
 }

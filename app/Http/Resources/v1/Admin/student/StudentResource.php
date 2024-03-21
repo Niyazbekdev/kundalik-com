@@ -15,9 +15,11 @@ class StudentResource extends JsonResource
             'name' => $this->name,
             'year' => $this->year,
             'phone' => $this->phone,
-            'courses' => CourseResource::collection($this->courses),
             'created_at' => $this->created_at?->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at?->format('Y-m-d H:i:s'),
+            $this->mergeWhen($request->routeIs('students.index'), [
+                'course' => new CourseResource($this->course),
+            ])
         ];
     }
 }

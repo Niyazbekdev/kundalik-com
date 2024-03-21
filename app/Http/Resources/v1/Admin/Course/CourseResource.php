@@ -12,13 +12,14 @@ class CourseResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'teacher' => new TeacherResource($this->user),
-            'name' => $this->name,
-            'duration' => $this->duration,
+            'name' => $this->name,'duration' => $this->duration,
             'price' => $this->price,
             'count_student' => $this->count_student,
             'created_at' => $this->created_at?->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at?->format('Y-m-d H:i:s'),
+            $this->mergeWhen($request->routeIs('courses.index'),[
+                'teacher' => new TeacherResource($this->user),
+            ]),
         ];
     }
 }

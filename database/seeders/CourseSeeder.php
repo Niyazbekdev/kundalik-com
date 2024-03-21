@@ -14,7 +14,8 @@ class CourseSeeder extends Seeder
             'name' => 'front end',
             'duration' => 6,
             'price' => 500000,
-            'count_student' => 12
+            'count_student' => 12,
+            'time' => '18:00:00'
         ]);
 
         Course::create([
@@ -22,7 +23,8 @@ class CourseSeeder extends Seeder
             'name' => 'backend',
             'duration' => 6,
             'price' => 500000,
-            'count_student' => 10
+            'count_student' => 10,
+            'time' => '09:00:00'
         ]);
     }
 }

@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -20,6 +19,7 @@ class Course extends Model
         'duration',
         'price',
         'count_student',
+        'time',
     ];
 
     protected $casts = [
@@ -39,9 +39,9 @@ class Course extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function students(): BelongsToMany
+    public function students(): HasMany
     {
-        return $this->belongsToMany(Student::class, 'course_student');
+        return $this->hasMany(Student::class);
     }
 
     public function lessons(): HasMany

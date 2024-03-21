@@ -13,11 +13,11 @@ class IndexStudentService
     {
         $courseId = $request->course_id ?? null;
 
-        $student = Student::with('courses')
+        $student = Student::with('course')
             ->when($request->search ?? null, function ($query, $search){
                 $query->search($search);
             })->when($courseId, function ($query) use ($courseId){
-                $query->whereHas('courses', function (Builder $builder) use ($courseId){
+                $query->whereHas('course', function (Builder $builder) use ($courseId){
                     $builder->with('users')->where('course_id', $courseId);
                 });
             })

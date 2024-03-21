@@ -20,6 +20,7 @@ class UpdateCourseService
             'duration' => $data['duration'],
             'price' => $data['price'],
             'count_student' => $data['count_student'],
+            'time' => $data['time'],
         ]);
 
         return response()->success(new CourseResource($course));

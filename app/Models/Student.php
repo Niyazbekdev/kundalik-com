@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Student extends Model
@@ -13,6 +13,7 @@ class Student extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'course_id',
         'name',
         'year',
         'address',
@@ -20,6 +21,7 @@ class Student extends Model
     ];
 
     protected $casts = [
+        'course_id' => 'integer',
         'year' => 'integer',
     ];
 
@@ -28,8 +30,8 @@ class Student extends Model
         $builder->where('name', 'like', "%{$search}%");
     }
 
-    public function courses(): BelongsToMany
+    public function course(): BelongsTo
     {
-        return $this->belongsToMany(Course::class, 'course_student');
+        return $this->belongsTo(Course::class);
     }
 }

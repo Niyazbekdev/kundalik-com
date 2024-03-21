@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\v1\StoreLessonRequest;
 use App\Http\Requests\v1\UpdateLessonRequest;
 use App\Models\Course;
+use App\Models\Lesson;
 use App\Services\v1\Teacher\lesson\DeleteLessonService;
 use App\Services\v1\Teacher\lesson\IndexLessonService;
+use App\Services\v1\Teacher\lesson\ShowLessonService;
 use App\Services\v1\Teacher\lesson\StoreLessonService;
 use App\Services\v1\Teacher\lesson\UpdateLessonService;
 use Illuminate\Http\Request;
@@ -22,6 +24,11 @@ class LessonController extends Controller
     public function store(Course $course, StoreLessonRequest $request)
     {
         return app(StoreLessonService::class)->execute($course, $request);
+    }
+
+    public function show(Course $course, Lesson $lesson)
+    {
+        return app(ShowLessonService::class)->execute($course, $lesson);
     }
 
     public function update(Course $course, string $lesson, UpdateLessonRequest $request)

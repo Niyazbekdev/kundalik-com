@@ -14,8 +14,6 @@ class StoreStudentService
 
         $student = Student::create($data);
 
-        $student->courses()->attach($data['course_id']);
-
         return response()->success(new StudentResource($student));
     }
 }
