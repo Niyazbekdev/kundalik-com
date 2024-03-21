@@ -15,14 +15,12 @@ class Student extends Model
     protected $fillable = [
         'course_id',
         'name',
-        'year',
         'address',
         'phone',
     ];
 
     protected $casts = [
         'course_id' => 'integer',
-        'year' => 'integer',
     ];
 
     public function scopeSearch(Builder $builder, $search): void

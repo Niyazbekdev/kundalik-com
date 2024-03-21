@@ -16,7 +16,6 @@ class UpdateStudentRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'year' => 'required',
             'phone' => ['required', Rule::unique('students', 'phone')->ignore($this->student)]
         ];
     }

@@ -14,6 +14,7 @@ class DeleteTeacherService
             return response()->error('user not found', 404);
 
         $teacher->delete();
-        return response()->true();
+
+        return response()->successfull();
     }
 }

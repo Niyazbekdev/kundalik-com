@@ -14,7 +14,6 @@ class UpdateStudentService
 
         $student->update([
             'name' => $data['name'],
-            'year' => $data['year'],
             'phone' => $data['phone'],
         ]);
 

@@ -15,7 +15,6 @@ class StoreStudentRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'year' => 'required',
             'phone' => 'required|unique:students,phone',
             'course_id' => 'required',
         ];

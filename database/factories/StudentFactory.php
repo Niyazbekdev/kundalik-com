@@ -11,7 +11,6 @@ class StudentFactory extends Factory
         return [
             'course_id' => rand(1,2),
             'name' => fake()->name(),
-            'year' => fake()->year(),
             'phone' => fake()->phoneNumber(),
         ];
     }

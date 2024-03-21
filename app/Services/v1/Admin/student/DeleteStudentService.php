@@ -10,8 +10,6 @@ class DeleteStudentService
     {
         $student->delete();
 
-        $student->courses()->detach();
-
         return response()->successfull();
     }
 }
