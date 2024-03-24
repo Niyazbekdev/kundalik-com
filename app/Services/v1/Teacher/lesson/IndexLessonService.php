@@ -10,8 +10,11 @@ class IndexLessonService
 {
     public function execute(Course $course, Request $request)
     {
-        $lessons = $course->lessons()->paginate($request->limit ?? 10);
+        $lessons = $course
+            ->lessons()
+            ->orderBy('date', 'asc')
+            ->paginate($request->limit ?? 10);
 
-        return response()->success(new LessonCollection($lessons));
+        return response()->collection(new LessonCollection($lessons));
     }
 }

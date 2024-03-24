@@ -12,6 +12,6 @@ class IndexCourseService
     {
         $course = Course::with('user')->paginate($request->limit ?? 10);
 
-        return response()->success(new CourseCollection($course));
+        return response()->collection(new CourseCollection($course));
     }
 }

@@ -23,6 +23,6 @@ class IndexStudentService
             })
             ->paginate($request->limit ?? 10);
 
-        return response()->success(new StudentCollection($student));
+        return response()->collection(new StudentCollection($student));
     }
 }

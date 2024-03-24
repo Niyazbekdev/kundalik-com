@@ -33,5 +33,9 @@ class AppServiceProvider extends ServiceProvider
                 'success' => true,
             ]);
         });
+
+        Response::macro('collection', function ($data){
+            return response()->json($data);
+        });
     }
 }

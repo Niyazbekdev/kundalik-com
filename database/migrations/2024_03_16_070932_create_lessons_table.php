@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('course_id')->constrained()->cascadeOnDelete();
             $table->string('name');
-            $table->timestamp('date');
+            $table->date('date');
             $table->timestamps();
             $table->softDeletes();
         });

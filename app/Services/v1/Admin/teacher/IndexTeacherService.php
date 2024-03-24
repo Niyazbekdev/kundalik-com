@@ -12,6 +12,6 @@ class IndexTeacherService
     {
         $teacher = User::where('role_id', 2)->paginate($request->limit ?? 10);
 
-        return response()->success(new TeacherCollection($teacher));
+        return response()->collection(new TeacherCollection($teacher));
     }
 }

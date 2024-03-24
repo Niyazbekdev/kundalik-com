@@ -14,6 +14,8 @@ class StoreLessonService
 
         $lesson = $course->lessons()->create($data);
 
+       $lesson->students()->sync($course->students()->pluck('id'));
+
         return response()->success(new LessonResource($lesson));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\v1\Admin\auth;
+namespace App\Services\v1\auth;
 
 use Illuminate\Http\Request;
 

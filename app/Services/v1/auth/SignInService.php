@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Services\v1\Teacher\auth;
+namespace App\Services\v1\auth;
 
 use App\Http\Requests\v1\StoreSignInRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -12,12 +13,14 @@ class SignInService
     {
         $data = $request->validated();
 
-        $teacher = User::where('role_id', 2)->where('phone', $data['phone'])->first();
+        $user = User::where('phone', $data['phone'])->first();
 
-        if (! $teacher or ! Hash::check($data['password'], $teacher->password))
+        if (!$user || !Hash::check($data['password'], $user->password))
             return response()->error('user not found or password in correct', 422);
 
-        $token = $teacher->createToken('teacher model', ['teacher'])->plainTextToken;
+        $role = Role::find($user->role_id);
+
+        $token = $user->createToken('user model', [$role['name']])->plainTextToken;
 
         return response()->success(['token' => $token]);
     }

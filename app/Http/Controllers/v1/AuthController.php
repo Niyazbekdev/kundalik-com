@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\v1\Admin;
+namespace App\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\v1\StoreSignInRequest;
-use App\Services\v1\Admin\auth\GetMeService;
-use App\Services\v1\Admin\auth\LogOutService;
-use App\Services\v1\Admin\auth\SignInService;
+use App\Services\v1\auth\GetMeService;
+use App\Services\v1\auth\LogOutService;
+use App\Services\v1\auth\SignInService;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
