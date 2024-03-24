@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\v1\Admin;
+namespace App\Services\v1\Admin\auth;
 
 use App\Http\Requests\v1\StoreSignInRequest;
 use App\Models\User;
