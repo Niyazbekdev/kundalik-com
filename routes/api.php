@@ -24,6 +24,6 @@ Route::middleware(['auth:sanctum', 'ability:teacher'])->group(function (){
 
 Route::middleware(['auth:sanctum', 'ability:admin'])->group(function (){
     Route::apiResource('teachers', TeacherController::class);
-    Route::apiResource('courses', CourseController::class);
+    Route::apiResource('courses', App\Http\Controllers\v1\Admin\CourseController::class);
     Route::apiResource('students', StudentController::class);
 });
