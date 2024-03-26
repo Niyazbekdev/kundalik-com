@@ -16,7 +16,7 @@ class DavomatController extends Controller
         return app(IndexDavomatService::class)->execute($lesson);
     }
 
-    public function update(Lesson $lesson ,StoreDavomatRequest $request)
+    public function store(Lesson $lesson ,StoreDavomatRequest $request)
     {
         return app(StoreDavomatService::class)->execute($request, $lesson);
     }

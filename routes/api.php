@@ -21,7 +21,7 @@ Route::middleware(['auth:sanctum', 'ability:teacher'])->group(function (){
     Route::get('teacher/courses/{course}', [CourseController::class, 'show']);
     Route::apiResource('teacher/courses.lessons', LessonController::class);
     Route::get('lessons/{lesson}/students',[DavomatController::class, 'index']);
-    Route::patch('davomat/{lesson}', [DavomatController::class, 'update']);
+    Route::post('davomat/{lesson}/students', [DavomatController::class, 'store']);
 });
 
 Route::middleware(['auth:sanctum', 'ability:admin'])->group(function (){
@@ -29,5 +29,5 @@ Route::middleware(['auth:sanctum', 'ability:admin'])->group(function (){
     Route::apiResource('courses', App\Http\Controllers\v1\Admin\CourseController::class);
     Route::apiResource('students', StudentController::class);
     Route::get('courses/{course}/payments', [PaymentController::class, 'index']);
-    Route::put('courses/{course}/payments/{payment}', [PaymentController::class, 'update']);
+    Route::put('students/{student}/payments/{payment}', [PaymentController::class, 'update']);
 });

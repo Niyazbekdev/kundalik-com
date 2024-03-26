@@ -10,12 +10,9 @@ class StoreDavomatService
     public function execute(StoreDavomatRequest $request, Lesson $lesson)
     {
         $data = $request->validated();
-        $lesson->update([
-            'students' => $data,
-        ]);
-
-        $lesson->save();
-
+        foreach ($data['students'] as $student){
+            $lesson->students()->attach($student['student_id'], ['is_active' => $student['is_active']]);
+        }
         return response()->successfull();
     }
 }
