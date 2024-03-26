@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Resources\v1\Admin\student;
+namespace App\Http\Resources\v1\student;
 
-use App\Http\Resources\v1\Admin\Course\CourseResource;
+use App\Http\Resources\v1\Course\CourseResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

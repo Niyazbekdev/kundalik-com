@@ -3,7 +3,7 @@
 namespace App\Services\v1\Teacher\lesson;
 
 use App\Http\Requests\v1\UpdateLessonRequest;
-use App\Http\Resources\v1\Teacher\lesson\LessonResource;
+use App\Http\Resources\v1\lesson\LessonResource;
 use App\Models\Course;
 
 class UpdateLessonService

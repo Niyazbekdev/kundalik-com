@@ -2,7 +2,7 @@
 
 namespace App\Services\v1\Admin\student;
 
-use App\Http\Resources\v1\Admin\student\StudentCollection;
+use App\Http\Resources\v1\student\StudentCollection;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;

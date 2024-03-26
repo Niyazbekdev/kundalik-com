@@ -19,6 +19,8 @@ class Course extends Model
         'duration',
         'price',
         'count_student',
+        'start',
+        'days',
         'time',
     ];
 
@@ -47,5 +49,10 @@ class Course extends Model
     public function lessons(): HasMany
     {
         return $this->hasMany(Lesson::class);
+    }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(Payment::class);
     }
 }

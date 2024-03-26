@@ -2,7 +2,7 @@
 
 namespace App\Services\v1\Teacher\course;
 
-use App\Http\Resources\v1\Admin\Course\CourseResource;
+use App\Http\Resources\v1\Course\CourseResource;
 use App\Models\Course;
 
 class ShowCourseService

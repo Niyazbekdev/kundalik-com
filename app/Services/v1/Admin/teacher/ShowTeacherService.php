@@ -2,7 +2,7 @@
 
 namespace App\Services\v1\Admin\teacher;
 
-use App\Http\Resources\v1\Admin\Teacher\TeacherResource;
+use App\Http\Resources\v1\Teacher\TeacherResource;
 use App\Models\User;
 
 class ShowTeacherService

@@ -2,7 +2,7 @@
 
 namespace App\Services\v1\Teacher\lesson;
 
-use App\Http\Resources\v1\Teacher\lesson\LessonResource;
+use App\Http\Resources\v1\lesson\LessonResource;
 use App\Models\Course;
 use App\Models\Lesson;
 

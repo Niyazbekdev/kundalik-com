@@ -3,7 +3,7 @@
 namespace App\Services\v1\Admin\teacher;
 
 use App\Http\Requests\v1\StoreTeacherRequest;
-use App\Http\Resources\v1\Admin\Teacher\TeacherResource;
+use App\Http\Resources\v1\Teacher\TeacherResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 

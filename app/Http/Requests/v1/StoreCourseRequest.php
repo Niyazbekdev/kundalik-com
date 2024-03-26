@@ -19,6 +19,8 @@ class StoreCourseRequest extends FormRequest
             'duration' => 'required',
             'price' => 'required',
             'count_student' => 'required',
+            'start' => 'required',
+            'days' => 'required',
             'time' => 'required',
         ];
     }

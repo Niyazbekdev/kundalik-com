@@ -2,7 +2,7 @@
 
 namespace App\Services\v1\Admin\teacher;
 
-use App\Http\Resources\v1\Admin\Teacher\TeacherCollection;
+use App\Http\Resources\v1\Teacher\TeacherCollection;
 use App\Models\User;
 use Illuminate\Http\Request;
 

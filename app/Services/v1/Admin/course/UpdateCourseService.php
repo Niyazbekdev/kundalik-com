@@ -3,7 +3,7 @@
 namespace App\Services\v1\Admin\course;
 
 use App\Http\Requests\v1\UpdateCourseRequest;
-use App\Http\Resources\v1\Admin\Course\CourseResource;
+use App\Http\Resources\v1\Course\CourseResource;
 use App\Models\Course;
 
 class UpdateCourseService

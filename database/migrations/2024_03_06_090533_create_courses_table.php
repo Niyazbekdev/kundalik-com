@@ -15,6 +15,8 @@ return new class extends Migration
             $table->enum('duration', [1,2,3,4,6,8]);
             $table->unsignedInteger('price');
             $table->unsignedInteger('count_student');
+            $table->date('start');
+            $table->enum('days', ['odd', 'even']);
             $table->time('time');
             $table->timestamps();
             $table->softDeletes();

@@ -2,7 +2,7 @@
 
 namespace App\Services\v1\Teacher\course;
 
-use App\Http\Resources\v1\Teacher\course\CourseCollection;
+use App\Http\Resources\v1\Course\CourseCollection;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
