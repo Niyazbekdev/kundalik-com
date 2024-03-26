@@ -3,17 +3,17 @@
 namespace App\Services\v1\Admin\payment;
 
 use App\Http\Requests\v1\UpdatePaymentRequest;
-use App\Models\Course;
+use App\Models\Student;
 
 class UpdatePaymentService
 {
-    public function execute(Course $course, string $payment, UpdatePaymentRequest $request)
+    public function execute(Student $student, string $payment, UpdatePaymentRequest $request)
     {
-        $course->payments()->findOrFail($payment);
+        $student->payments()->findOrFail($payment);
 
         $data = $request->validated();
 
-        $course->update([
+        $student->update([
             'first' => $data['first'],
             'second' => $data['second'],
             'thrid' => $data['thrid'],
