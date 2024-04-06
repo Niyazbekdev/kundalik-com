@@ -15,8 +15,6 @@ class StoreDavomatRequest extends FormRequest
     {
         return [
             'students' => 'required|array',
-            'students.*.student_id' => 'required_unless:students,null',
-            'students.*.is_active' => 'required_unless:students,null',
         ];
     }
 }

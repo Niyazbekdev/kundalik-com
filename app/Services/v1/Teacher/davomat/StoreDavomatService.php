@@ -11,7 +11,7 @@ class StoreDavomatService
     {
         $data = $request->validated();
         foreach ($data['students'] as $student){
-            $lesson->students()->attach($student['student_id'], ['is_active' => $student['is_active']]);
+            $lesson->students()->attach($student, ['is_active' => true]);
         }
         return response()->successfull();
     }
