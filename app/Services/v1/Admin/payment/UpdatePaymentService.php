@@ -9,20 +9,12 @@ class UpdatePaymentService
 {
     public function execute(Student $student, string $payment, UpdatePaymentRequest $request)
     {
-        $student->payments()->findOrFail($payment);
+        $payments = $student->payments()->findOrFail($payment);
 
         $data = $request->validated();
 
-        $student->update([
-            'first' => $data['first'],
-            'second' => $data['second'],
-            'thrid' => $data['thrid'],
-            'fourth' => $data['fourth'],
-            'fifth' => $data['fifth'],
-            'sixth' => $data['sixth'],
-            'seventh' => $data['seventh'],
-            'eighth' => $data['eighth'],
-        ]);
+        $payments[$data['month']] = $data['is_paid'];
+        $payments->save();
 
         return response()->successfull();
     }

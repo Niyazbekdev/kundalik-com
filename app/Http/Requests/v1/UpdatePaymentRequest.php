@@ -14,14 +14,8 @@ class UpdatePaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first' => 'nullable',
-            'second' => 'nullable',
-            'thrid' => 'nullable',
-            'fourth' => 'nullable',
-            'fifth' => 'nullable',
-            'sixth' => 'nullable',
-            'seventh' => 'nullable',
-            'eighth' => 'nullable',
+            'month' => 'required|string',
+            'is_paid' => 'required|boolean',
         ];
     }
 }

@@ -25,6 +25,6 @@ class Lesson extends Model
 
     public function students(): BelongsToMany
     {
-        return $this->belongsToMany(Student::class);
+        return $this->belongsToMany(Student::class, 'lesson_student', 'lesson_id')->withPivot('is_active');
     }
 }

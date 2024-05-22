@@ -14,7 +14,7 @@ return new class extends Migration
             $table->foreignId('course_id')->constrained();
             $table->boolean('first')->default(false);
             $table->boolean('second')->default(false);
-            $table->boolean('thrid')->default(false);
+            $table->boolean('third')->default(false);
             $table->boolean('fourth')->default(false);
             $table->boolean('fifth')->default(false);
             $table->boolean('sixth')->default(false);

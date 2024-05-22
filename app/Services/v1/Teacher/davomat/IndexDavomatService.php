@@ -12,8 +12,8 @@ class IndexDavomatService
     {
         $course = Course::findOrFail($lesson->course_id);
 
-        $students = $course->students()->get();
-
+//        $students = $lesson->students()->get();
+        $students = $course->students()->with('lessons')->get();
         return response()->success(StudentResource::collection($students));
     }
 }

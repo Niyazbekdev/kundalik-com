@@ -8,42 +8,45 @@ class IndexPaymentService
 {
     public function execute(Course $course)
     {
-        $payments = null;
-        if ($course['duration'] == 1)
+        $paymentColumns = [
+            'id',
+            'student_id',
+        ];
+
+        $durationMap = [
+            1 => 'first',
+            2 => ['first', 'second'],
+            3 => ['first', 'second', 'third'],
+            4 => ['first', 'second', 'third', 'fourth'],
+            6 => ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'],
+            8 => ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth'],
+        ];
+
         $payments = $course->payments()
-            ->select('id', 'id', 'student_id', 'first')
-            ->get();
+            ->with('student')
+            ->select($paymentColumns);
 
-        if ($course['duration'] == 2)
-            $payments = $course
-                ->payments()
-                ->select('id', 'student_id', 'first', 'second')
-                ->get();
 
-        if ($course['duration'] == 3)
-            $payments = $course
-                ->payments()
-                ->select('id', 'student_id', 'first', 'second', 'thrid')
-                ->get();
+        if (isset($durationMap[$course->duration])) {
+            $payments->select(array_merge($paymentColumns, $durationMap[$course->duration]));
+        }
 
-        if ($course['duration'] == 4)
-            $payments = $course
-                ->payments()
-                ->select('id', 'student_id', 'first', 'second', 'thrid', 'fourth')
-                ->get();
-
-        if ($course['duration'] == 6)
-            $payments = $course
-                ->payments()
-                ->select('id', 'student_id', 'first', 'second', 'thrid', 'fourth', 'fifth', 'sixth')
-                ->get();
-
-        if ($course['duration'] == 8)
-            $payments = $course
-                ->payments()
-                ->select('id', 'student_id', 'first', 'second', 'thrid', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth')
-                ->get();
-
-        return response()->collection(['data' => $payments]);
+        return response()->json(['data' => $payments->get()->map(function ($payment) {
+            return [
+                'id' => $payment->id,
+                'student_id' => $payment->student_id,
+                'student' => $payment->student,
+                'months' => [
+                    $payment->first,
+                    $payment->second,
+                    $payment->third,
+                    $payment->fourth,
+                    $payment->fifth,
+                    $payment->sixth,
+                    $payment->seventh,
+                    $payment->eighth,
+                ]
+            ];
+        })]);
     }
 }

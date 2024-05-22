@@ -3,6 +3,7 @@
 namespace App\Http\Resources\v1\student;
 
 use App\Http\Resources\v1\Course\CourseResource;
+use App\Http\Resources\v1\lesson\LessonResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,11 +15,15 @@ class StudentResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'phone' => $this->phone,
-            'created_at' => $this->created_at?->format('Y-m-d H:i:s'),
-            'updated_at' => $this->updated_at?->format('Y-m-d H:i:s'),
             $this->mergeWhen($request->routeIs('students.index'), [
                 'course' => new CourseResource($this->course),
-            ])
+                'created_at' => $this->created_at?->format('Y-m-d H:i:s'),
+                'updated_at' => $this->updated_at?->format('Y-m-d H:i:s'),
+            ]),
+//            $this->mergeWhen($request->routeIs('attendance.index'), [
+//                'status' => $this->lesson(),
+//            ]),
+            'is_active' => $this->lessons()->where('id', $request->lesson->id)->first()?->pivot->is_active,
         ];
     }
 }

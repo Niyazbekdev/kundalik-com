@@ -20,7 +20,7 @@ Route::middleware(['auth:sanctum', 'ability:teacher'])->group(function (){
     Route::get('teacher/courses', [CourseController::class, 'index'])->name('teacher.index');
     Route::get('teacher/courses/{course}', [CourseController::class, 'show']);
     Route::apiResource('teacher/courses.lessons', LessonController::class);
-    Route::get('lessons/{lesson}/students',[DavomatController::class, 'index']);
+    Route::get('lessons/{lesson}/students',[DavomatController::class, 'index'])->name('attendance.index');
     Route::post('davomat/{lesson}/students', [DavomatController::class, 'store']);
 });
 

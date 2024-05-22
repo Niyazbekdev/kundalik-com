@@ -15,7 +15,7 @@ class Payment extends Model
         'course_id',
         'first',
         'second',
-        'thrid',
+        'third',
         'fourth',
         'fifth',
         'sixth',
@@ -28,7 +28,7 @@ class Payment extends Model
         'course_id' => 'integer',
         'first' => 'boolean' ,
         'second' => 'boolean',
-        'thrid' => 'boolean' ,
+        'third' => 'boolean' ,
         'fourth' => 'boolean',
         'fifth' => 'boolean' ,
         'sixth' => 'boolean' ,
@@ -38,7 +38,7 @@ class Payment extends Model
 
     public function student(): BelongsTo
     {
-        return $this->belongsTo(Student::class);
+        return $this->belongsTo(Student::class)->select('id', 'name', 'phone');
     }
 
     public function course(): BelongsTo
