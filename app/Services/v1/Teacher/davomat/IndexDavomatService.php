@@ -3,6 +3,7 @@
 namespace App\Services\v1\Teacher\davomat;
 
 use App\Http\Resources\v1\student\StudentResource;
+use App\Http\Resources\v1\Teacher\DavomatResource;
 use App\Models\Course;
 use App\Models\Lesson;
 
@@ -14,6 +15,6 @@ class IndexDavomatService
 
 //        $students = $lesson->students()->get();
         $students = $course->students()->with('lessons')->get();
-        return response()->success(StudentResource::collection($students));
+        return response()->success(DavomatResource::collection($students));
     }
 }
